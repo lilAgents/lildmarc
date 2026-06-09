@@ -128,12 +128,21 @@ a {
   flex: 1;
   display: flex;
   justify-content: center;
+  /* flex-start, NOT the stretch default: stretch pins .trace-inner to the
+     container height so its content overflows the box, and scroll containers
+     clip everything past the last element's border. This is why bottom
+     spacing kept disappearing. */
+  align-items: flex-start;
   padding: 40px 20px 56px;
   overflow-y: auto;
 }
 .trace-inner {
   width: 100%;
   max-width: 720px;
+  /* Bottom space lives here as padding, not as a margin on the last child:
+     scroll containers drop the last child's bottom margin from the
+     scrollable area, which is how the CTA kept hugging the footer. */
+  padding-bottom: 56px;
 }
 .trace-title {
   margin: 0;
@@ -429,7 +438,7 @@ a {
 
 /* ---------- Cross-link CTA ---------- */
 .cta {
-  margin: 26px 0 72px;
+  margin: 26px 0 24px;
   display: flex;
   align-items: center;
   gap: 12px;
