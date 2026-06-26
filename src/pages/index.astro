@@ -1,4 +1,5 @@
 ---
+import ToolFooter from "../components/ToolFooter.astro";
 import '../styles/app.css';
 
 const title = 'lilDMARC - SPF, DKIM & DMARC Checker';
@@ -103,9 +104,7 @@ const description =
       </div>
     </main>
 
-    <footer class="app-footer">
-      <span>Made with <span class="app-footer__heart" aria-hidden="true">&#9829;</span> by <a href="https://lilagents.com" target="_blank" rel="noopener">lilAgents</a> &middot; Know your email will land.</span>
-    </footer>
+    <ToolFooter repoUrl="https://github.com/lilAgents/lildmarc" />
 
     <script>
       import { initDmarc } from '../scripts/dmarc.js';
